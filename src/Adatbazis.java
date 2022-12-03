@@ -59,7 +59,9 @@ System.out.println(felhasznalok.toString());
                                 break;
                             case 4:
                                 //üzletvezető
-//                               felhasznalok.add(new Uzletvezeto(Integer.parseInt(tmp[0]), tmp[1], tmp[2], Integer.parseInt(tmp[3])));
+                                felhasznalok.add(
+                                    new Uzletvezeto(azonosito, email, jelszo)
+                                );
                                 break;
                             default:
                                 break;
@@ -73,10 +75,21 @@ System.out.println(felhasznalok.toString());
                 }
    };
    public void save() {
+    //Save kolcsonzesek
     try {//Ennek mintajara auto utanfuto es felhasznalo
         FileWriter myWriter = new FileWriter("kolcsonzesek.txt");
         for (Kolcsonzes k : kolcsonzesek) {
            myWriter.write(k.toString()); 
+        };
+        myWriter.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+    }
+    //Save auto
+    try {//Ennek mintajara auto utanfuto es felhasznalo
+        FileWriter myWriter = new FileWriter("autok.txt");
+        for (Auto a : autok) {
+           myWriter.write(a.toString()); 
         };
         myWriter.close();
       } catch (IOException e) {

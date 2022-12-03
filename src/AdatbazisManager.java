@@ -26,4 +26,16 @@ System.out.println("SIZE: "+adatbazis.felhasznalok.size());
         });
         adatbazis.save();
     }
+
+    public void AutoLeadasUzletvezeto(String rendszam) {
+        adatbazis.kolcsonzesek.removeIf(
+            (Kolcsonzes k )->{
+            return (k.getRendszam().equalsIgnoreCase(rendszam)) ;
+        });
+        adatbazis.save();
+    }
+    public void addAuto(Auto a) {
+        adatbazis.autok.add(a);
+        adatbazis.save();
+    }
 }
