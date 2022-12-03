@@ -4,9 +4,6 @@ public class Admin extends Felhasznalo {
     public Admin(int azonosito, String email, String jelszo) {
         super(azonosito, email, jelszo);
     }
-    public Admin(int azonosito, String email, String jelszo, Adatbazis adatbazis) {
-        super(azonosito, email, jelszo);
-    }
     public void kolcsonezTorleseById(Integer kolcsonzesId) {
     };
     public void autoTorlese(Auto auto) {
@@ -22,12 +19,11 @@ public class Admin extends Felhasznalo {
     public void utanfutoAdatainakKezelese(Utanfuto newUtanfuto) {
     };
     public void ugyfelAdatainakKezelese(Ugyfel newUgyfel) {
-    }
+    };
 
     @Override
     void Menu() {
         String[] options = {
-            "------------------",
             "1 - ",
             "2 - ",
             "0 - Vissza",
@@ -45,7 +41,7 @@ public class Admin extends Felhasznalo {
                 }
             }
             catch (Exception ex){
-                System.out.println("Please enter an integer value between 1 and " + options.length);
+                System.out.println("Please enter an integer value between 0 and " + (options.length-1));
                 scanner.next();
             }
         }

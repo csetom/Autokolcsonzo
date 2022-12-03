@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class AdatbazisManager {
     Adatbazis adatbazis=new Adatbazis();
     AdatbazisManager(){
@@ -8,4 +11,19 @@ System.out.println("SIZE: "+adatbazis.felhasznalok.size());
              f.getEmail().equalsIgnoreCase(email)
         ).findFirst().orElseThrow();
     };
+    public void UjKolcsonzes(String rendszam, int azonosito) {
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        int id=adatbazis.kolcsonzesek.get(adatbazis.kolcsonzesek.size()-1).getKolcsonzesId();
+        id++;
+        Kolcsonzes k = new Kolcsonzes(id,azonosito,rendszam,date,1234,"Kolcsonozve");
+        adatbazis.kolcsonzesek.add(k);
+        adatbazis.save();
+    }
+    public void AutoLeadas(String rendszam, int azonosito) {
+        adatbazis.kolcsonzesek.removeIf(
+            (Kolcsonzes k )->{
+            return (k.getRendszam().equalsIgnoreCase(rendszam) && k.getUgyfelAzonosito()==azonosito) ;
+        });
+        adatbazis.save();
+    }
 }

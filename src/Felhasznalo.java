@@ -1,20 +1,18 @@
 public abstract class Felhasznalo {
-    private int azonosito;
-    private String email;
-    private String jelszo;
-    private AdatbazisManager adatbazisManager;
+    protected int azonosito;
+    protected String email;
+    protected String jelszo;
+    protected AdatbazisManager adatbazisManager;
 
 
-public void setAdatbazisManager(AdatbazisManager adatbazisManager) {
+    public void setAdatbazisManager(AdatbazisManager adatbazisManager) {
         this.adatbazisManager = adatbazisManager;
     }
-public Felhasznalo(int azonosito, String email, String jelszo) {
+    public Felhasznalo(int azonosito, String email, String jelszo) {
         this.azonosito = azonosito;
         this.email = email;
         this.jelszo = jelszo;
     }
-//    public void kijelentkezes(){};
-//    public void bejelentkezes(){};
     public void adatmodositas(String adatkulcs, String ujErtek) {
         
     }

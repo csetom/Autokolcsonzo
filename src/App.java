@@ -57,6 +57,7 @@ public class App {
         }
         System.out.print("jelszo: ");
         if(felhasznalo.joJelszo(scanner.nextLine())){
+            felhasznalo.setAdatbazisManager(adatbazisManager);
             felhasznalo.Menu();
         } else {
             System.out.println("Rossz Jelszo");
