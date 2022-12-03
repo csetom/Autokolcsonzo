@@ -10,7 +10,7 @@ public Felhasznalo(int azonosito, String email, String jelszo) {
         this.email = email;
         this.jelszo = jelszo;
     }
-    //    public void kijelentkezes(){};
+//    public void kijelentkezes(){};
 //    public void bejelentkezes(){};
     public void adatmodositas(String adatkulcs, String ujErtek) {
         
@@ -36,5 +36,6 @@ public Felhasznalo(int azonosito, String email, String jelszo) {
     public void setJelszo(String jelszo) {
         this.jelszo = jelszo;
     }
+    abstract void Menu();
 };
   
