@@ -1,1 +1,1 @@
-abc-123;Ford;G-70;dizel;5;fekete
+abc-444;mazda;S-maxi-12;benzin;4;kek

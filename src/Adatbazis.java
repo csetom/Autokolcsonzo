@@ -13,8 +13,30 @@ public class Adatbazis {
    public Adatbazis(){
         ReadFelhasznalok();
         ReadKolcsonzesek();
+        ReadAutok();
 System.out.println(felhasznalok.toString());
    }
+   private void ReadAutok() {
+                BufferedReader bufferedReader;
+                try {
+                    bufferedReader = new BufferedReader(new FileReader("autok.txt"));
+                    String[] tmp;
+                    while ((tmp = bufferedReader.readLine().split(";")) != null) {
+                        String rendszam=tmp[0];
+                        String tipus=tmp[1];
+                        String modell=tmp[2];
+                        String uzemanyag=tmp[3];
+                        int ferohely=Integer.parseInt(tmp[4]);
+                        String szin= tmp[5];
+                        autok.add(new Auto(rendszam,tipus,modell,uzemanyag,ferohely,szin));
+                    }
+
+                } catch (FileNotFoundException ex) {
+
+                } catch (IOException | NullPointerException ex) {
+
+                }
+   };
    private void ReadKolcsonzesek() {
                 BufferedReader bufferedReader;
                 try {
