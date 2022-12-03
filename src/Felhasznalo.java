@@ -39,5 +39,9 @@ public abstract class Felhasznalo {
     }
     abstract void Menu();
 
+    @Override
+    public String toString() {
+        return azonosito+";"+email+";"+jelszo+";";
+    }
 };
   

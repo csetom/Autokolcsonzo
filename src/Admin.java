@@ -46,4 +46,9 @@ public class Admin extends Felhasznalo {
             }
         }
     };
+    
+    @Override
+    public String toString() {
+        return "admin;"+super.toString();
+    }
 }

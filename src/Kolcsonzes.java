@@ -58,6 +58,6 @@ public class Kolcsonzes {
     @Override
     public String toString() {
         return kolcsonzesId + ";" + UgyfelAzonosito + ";"
-                + rendszam + ";" + datum + ";" + ar + ";" + kolcsonzesAllapota + "\n";
+                + rendszam + ";" + datum + ";" + ar + ";" + kolcsonzesAllapota ;
     }
 }

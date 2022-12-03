@@ -79,4 +79,8 @@ public class Uzletvezeto extends Felhasznalo{
         }
     }
      
+    @Override
+    public String toString() {
+        return "uzletvetezo;"+super.toString();
+    }
 }

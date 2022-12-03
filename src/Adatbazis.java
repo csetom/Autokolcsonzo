@@ -64,22 +64,23 @@ System.out.println(felhasznalok.toString());
                     bufferedReader = new BufferedReader(new FileReader("felhasznalok.txt"));
                     String[] tmp;
                     while ((tmp = bufferedReader.readLine().split(";")) != null) {
-                        int azonosito=Integer.parseInt(tmp[0]);
-                        String email=tmp[1];
-                        String  jelszo=tmp[2];
-                        switch (tmp.length) { //TODO: At kell irni teljesen ezt is: 
-                            case 10:
+                        String tipus=tmp[0];
+                        int azonosito=Integer.parseInt(tmp[1]);
+                        String email=tmp[2];
+                        String  jelszo=tmp[3];
+                        switch (tipus) { 
+                            case "ugyfel":
                                 felhasznalok.add(
                                     new Ugyfel(azonosito, email, jelszo)
                                 );
                                 break;
-                            case 5:
+                            case "admin":
                                 //admin
                                 felhasznalok.add(
                                     new Admin(azonosito, email, jelszo)
                                 );
                                 break;
-                            case 4:
+                            case "uzletvezeto":
                                 //üzletvezető
                                 felhasznalok.add(
                                     new Uzletvezeto(azonosito, email, jelszo)
@@ -101,7 +102,17 @@ System.out.println(felhasznalok.toString());
     try {//Ennek mintajara auto utanfuto es felhasznalo
         FileWriter myWriter = new FileWriter("kolcsonzesek.txt");
         for (Kolcsonzes k : kolcsonzesek) {
-           myWriter.write(k.toString()); 
+           myWriter.write(k.toString()+ "\n"); 
+        };
+        myWriter.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+    }
+    //Save felhasznalo
+    try {//Ennek mintajara auto utanfuto es felhasznalo
+        FileWriter myWriter = new FileWriter("felhasznalok.txt");
+        for (Felhasznalo f : felhasznalok) {
+           myWriter.write(f.toString()+"\n"); 
         };
         myWriter.close();
       } catch (IOException e) {
@@ -111,7 +122,7 @@ System.out.println(felhasznalok.toString());
     try {//Ennek mintajara auto utanfuto es felhasznalo
         FileWriter myWriter = new FileWriter("autok.txt");
         for (Auto a : autok) {
-           myWriter.write(a.toString()); 
+           myWriter.write(a.toString()+"\n"); 
         };
         myWriter.close();
       } catch (IOException e) {

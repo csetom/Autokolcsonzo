@@ -11,14 +11,15 @@ public class App {
         MainMenu();
     }
     public static void printMenu(String[] options){
+        System.out.println("------------------");
         for (String option : options){
+            
             System.out.println(option);
         }
         System.out.print("Choose your option : ");
     }
     public static void MainMenu() {
         String[] options = {
-            "------------------",
             "1 - Bejelentkezes",
             "2 - Regisztracio",
             "0 - Kilepes",
@@ -64,6 +65,11 @@ public class App {
         }
     }
     private static void regisztracio() {
-        System.out.println("Thanks for choosing option 2");
+        System.out.print("Regisztracios email: ");
+        Scanner scanner = new Scanner(System.in);
+        String email=scanner.nextLine(); 
+        System.out.print("Regisztracios Jelszo: ");
+        String jelszo=scanner.nextLine();
+        adatbazisManager.UjUgyfel(email,jelszo);
     }
 }

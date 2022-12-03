@@ -9,7 +9,16 @@ public class Ugyfel extends Felhasznalo {
         super(azonosito, email, jelszo);
     }
     public void autoLista(){
-        System.out.println(this.adatbazisManager.adatbazis.autok.toString());
+        adatbazisManager.adatbazis.autok.forEach((Auto a)->{
+            if (adatbazisManager.adatbazis.kolcsonzesek.stream().filter((Kolcsonzes k)->{
+               return k.getRendszam().equals(a.getRendszam());
+            }).findFirst().orElse(null)==null) {
+                System.out.print("SZABAD: ");
+            } else {
+                System.out.print("FOGLALT: ");
+            };
+            System.out.println(a.toString());
+        });
     }
     public void autoKolcsonzes() throws IOException{
         System.out.print("Auto rendszam: ");
@@ -47,7 +56,7 @@ public class Ugyfel extends Felhasznalo {
             try {
                 option = scanner.nextInt();
                 switch (option){
-                    case 1 : autoLista();break;
+                    case 1 :autoLista();break;
                     case 2: autoKolcsonzes();break;
                     case 3: autoLeadas();break;
                     case 0: break;
@@ -58,6 +67,10 @@ public class Ugyfel extends Felhasznalo {
                 scanner.next();
             }
         }
+    }
+    @Override
+    public String toString() {
+        return "ugyfel;"+super.toString();
     }
     
 }

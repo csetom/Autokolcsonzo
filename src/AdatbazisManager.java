@@ -6,7 +6,6 @@ public class AdatbazisManager {
     AdatbazisManager(){
     }
     public Felhasznalo getFelhasznaloByEmail(String email){
-System.out.println("SIZE: "+adatbazis.felhasznalok.size());
          return adatbazis.felhasznalok.stream().filter((Felhasznalo f)->
              f.getEmail().equalsIgnoreCase(email)
         ).findFirst().orElseThrow();
@@ -37,5 +36,11 @@ System.out.println("SIZE: "+adatbazis.felhasznalok.size());
     public void addAuto(Auto a) {
         adatbazis.autok.add(a);
         adatbazis.save();
+    }
+    public void UjUgyfel(String email, String jelszo) {
+        int azonosito=adatbazis.felhasznalok.get(adatbazis.felhasznalok.size()-1).getAzonosito();
+        azonosito++;
+        adatbazis.felhasznalok.add(new Ugyfel(azonosito,email,jelszo));
+        adatbazis.save(); 
     }
 }
