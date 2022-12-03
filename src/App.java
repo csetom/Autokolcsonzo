@@ -21,11 +21,11 @@ public class App {
             "------------------",
             "1 - Bejelentkezes",
             "2 - Regisztracio",
-            "3 - Kilepes",
+            "0 - Kilepes",
         };
         Scanner scanner = new Scanner(System.in);
         int option = 1;
-        while (option!=3) {
+        while (option!=0) {
             printMenu(options);
             try {
                 option = scanner.nextInt();
@@ -36,10 +36,11 @@ public class App {
                 }
             }
             catch (Exception ex){
-                System.out.println("Please enter an integer value between 1 and " + options.length);
+                System.out.println("Please enter an integer value between 0 and 2");
                 scanner.next();
             }
         }
+        scanner.close();
     }
 // Options
     private static void bejelentkezes() {
@@ -48,18 +49,18 @@ public class App {
         Felhasznalo felhasznalo;
         try {
            String email=scanner.nextLine(); 
-System.out.println((email));
             felhasznalo=adatbazisManager.getFelhasznaloByEmail(email);
         } catch(Exception ex) {
+            System.out.println(ex.toString());
             System.out.println("Nincs ilyen felhasznalo");
             return;
         }
         System.out.print("jelszo: ");
         if(felhasznalo.joJelszo(scanner.nextLine())){
+            felhasznalo.Menu();
         } else {
             System.out.println("Rossz Jelszo");
         }
-
     }
     private static void regisztracio() {
         System.out.println("Thanks for choosing option 2");

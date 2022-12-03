@@ -1,36 +1,53 @@
+import java.util.Scanner;
+
 public class Admin extends Felhasznalo {
-    private Adatbazis adatbazis = new Adatbazis();
+    public Admin(int azonosito, String email, String jelszo) {
+        super(azonosito, email, jelszo);
+    }
     public Admin(int azonosito, String email, String jelszo, Adatbazis adatbazis) {
         super(azonosito, email, jelszo);
-        this.adatbazis=adatbazis;
     }
-    public void kolcsonezTorlese(Kolcsonzes kolcsonzes) {
-        adatbazis.kolcsonzesDelete(kolcsonzes);
+    public void kolcsonezTorleseById(Integer kolcsonzesId) {
     };
     public void autoTorlese(Auto auto) {
-        adatbazis.autoDelete(auto);
     };
     public void utanfutoTorlese(Utanfuto utanfuto) {
-        adatbazis.utanfutoDelete(utanfuto);
     };
     public void ugyfelTorlese(Ugyfel ugyfel) {
-        adatbazis.ugyfelDelete(ugyfel);
     };
     public void kolcsonezKezelese(Kolcsonzes newKolcsonzes) {
-        adatbazis.kolcsonzesCreateOrModify(newKolcsonzes);
     };
     public void autoAdatainakKezelese(Auto newAuto) {
-        adatbazis.autoCreateOrModify(newAuto);
     };
     public void utanfutoAdatainakKezelese(Utanfuto newUtanfuto) {
-        adatbazis.utanfutoCreateOrModify(newUtanfuto);
     };
     public void ugyfelAdatainakKezelese(Ugyfel newUgyfel) {
-        adatbazis.ugyfelCreateOrModify(newUgyfel);
     }
+
     @Override
     void Menu() {
-        // TODO Auto-generated method stub
-        
+        String[] options = {
+            "------------------",
+            "1 - ",
+            "2 - ",
+            "0 - Vissza",
+        };
+        Scanner scanner = new Scanner(System.in);
+        int option = 1;
+        while (option!=0) {
+            App.printMenu(options);
+            try {
+                option = scanner.nextInt();
+                switch (option){
+                    case 1 : break;
+                    case 2: break;
+                    case 0: break;
+                }
+            }
+            catch (Exception ex){
+                System.out.println("Please enter an integer value between 1 and " + options.length);
+                scanner.next();
+            }
+        }
     };
 }

@@ -2,9 +2,12 @@ public abstract class Felhasznalo {
     private int azonosito;
     private String email;
     private String jelszo;
-    //Jogosultsag, de az jon a leszarmazottbol.
+    private AdatbazisManager adatbazisManager;
 
 
+public void setAdatbazisManager(AdatbazisManager adatbazisManager) {
+        this.adatbazisManager = adatbazisManager;
+    }
 public Felhasznalo(int azonosito, String email, String jelszo) {
         this.azonosito = azonosito;
         this.email = email;
@@ -37,5 +40,6 @@ public Felhasznalo(int azonosito, String email, String jelszo) {
         this.jelszo = jelszo;
     }
     abstract void Menu();
+
 };
   
