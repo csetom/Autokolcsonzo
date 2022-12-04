@@ -1,6 +1,4 @@
-import java.util.Hashtable;
 import java.util.Scanner;
-import java.util.function.Function;
 
 import static java.lang.System.exit;
 ;
@@ -48,13 +46,14 @@ public class App {
         System.out.print("email: ");
         Scanner scanner = new Scanner(System.in);
         Felhasznalo felhasznalo;
-        try {
-           String email=scanner.nextLine(); 
-            felhasznalo=adatbazisManager.getFelhasznaloByEmail(email);
-        } catch(Exception ex) {
-            System.out.println(ex.toString());
+        String email=scanner.nextLine(); 
+        felhasznalo=adatbazisManager.getFelhasznaloByEmail(email);
+        if (felhasznalo==null) {
             System.out.println("Nincs ilyen felhasznalo");
             return;
+        }
+        try {
+        } catch(Exception ex) {
         }
         System.out.print("jelszo: ");
         if(felhasznalo.joJelszo(scanner.nextLine())){

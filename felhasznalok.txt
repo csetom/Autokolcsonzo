@@ -1,4 +1,7 @@
 ugyfel;0;alma@gmail.com;alma;
 ugyfel;1;hello;2;
 admin;3;admin;admin;
-ugyfel;5;szepseges;szepseges;
+ugyfel;4;admin@admin;admin;
+ugyfel;5;pelda@alma.hu;2;
+ugyfel;6;pelda@gmail.com;2;
+ugyfel;7;pelda@gmail.com;4;

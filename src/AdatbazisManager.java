@@ -8,7 +8,7 @@ public class AdatbazisManager {
     public Felhasznalo getFelhasznaloByEmail(String email){
          return adatbazis.felhasznalok.stream().filter((Felhasznalo f)->
              f.getEmail().equalsIgnoreCase(email)
-        ).findFirst().orElseThrow();
+        ).findFirst().orElse(null);
     };
     public void UjKolcsonzes(String rendszam, int azonosito) {
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
