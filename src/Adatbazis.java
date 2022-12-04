@@ -14,7 +14,6 @@ public class Adatbazis {
         ReadFelhasznalok();
         ReadKolcsonzesek();
         ReadAutok();
-System.out.println(felhasznalok.toString());
    }
    private void ReadAutok() {
                 BufferedReader bufferedReader;
